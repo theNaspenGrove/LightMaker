@@ -31,25 +31,7 @@ public class HandWatcher {
                     if(lights.contains(hand.asOne()) && b.getType() == Material.LIGHT){
                         int level = ((Levelled) b.getBlockData()).getLevel();
 
-                        TextComponent textComponent = Component.text(level)
-                                .color(NamedTextColor.GOLD);
-
-
-
-                        int handLevel = getLight(hand.asOne());
-                        if(handLevel != 15 & handLevel != 0){
-                            int result = rollOverAdd(handLevel + level);
-                            textComponent = textComponent.decoration(TextDecoration.BOLD, true)
-                                    .append(Component.text(" + ").color(NamedTextColor.WHITE).
-                                            decoration(TextDecoration.BOLD, false))
-                                    .append(Component.text(handLevel).color(NamedTextColor.GREEN).
-                                            decoration(TextDecoration.BOLD, false))
-                                    .append(Component.text(" = ").color(NamedTextColor.WHITE).
-                                            decoration(TextDecoration.BOLD, false))
-                                    .append(Component.text(result).color(NamedTextColor.AQUA).
-                                            decoration(TextDecoration.BOLD, true));
-
-                        }
+                        TextComponent textComponent = Component.text(level).color(NamedTextColor.GOLD);
                         p.sendActionBar(textComponent);
                     }
                 }
