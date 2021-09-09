@@ -4,11 +4,13 @@ import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
 import org.bukkit.inventory.ShapelessRecipe;
+import org.bukkit.inventory.StonecuttingRecipe;
 import org.bukkit.plugin.Plugin;
 
-import static net.mov51.lightmaker.util.Lights.lights;
+import static net.mov51.lightmaker.util.Lights.*;
 
 public class Recipe {
+
     public static void addBasicRecipe(Plugin plugin){
 
         NamespacedKey key = new NamespacedKey(plugin, "light_block");
@@ -25,21 +27,14 @@ public class Recipe {
     }
 
     public static void addLevelRecipe(Plugin plugin){
-        for(int i = 0; i < 15; i++){
-            addRecipe(plugin,i,i + 1);
+        for (int i = 15; i >= 0; i--){
+            NamespacedKey key = new NamespacedKey(plugin, "light_count_" + i);
+            StonecuttingRecipe recipe = new StonecuttingRecipe(key, lights.get(i), Material.LIGHT);
+            Bukkit.getServer().addRecipe(recipe);
         }
-        addRecipe(plugin,15,0);
     }
 
 
 
-    private static void addRecipe(Plugin plugin, int from, int too){
-        String group = "Light Blocks";
-        NamespacedKey key = new NamespacedKey(plugin, "leveled_light_block_"+too);
-        ShapelessRecipe recipe = new ShapelessRecipe(key, lights.get(too));
-        recipe.addIngredient((lights.get(from)));
-        recipe.setGroup(group);
-        Bukkit.addRecipe(recipe);
-    }
 
 }

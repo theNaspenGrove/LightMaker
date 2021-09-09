@@ -19,7 +19,7 @@ public class Lights {
 
     }
 
-    private static ItemStack makeLight(int i){
+    public static ItemStack makeLight(int i){
         ItemStack light = new ItemStack(Material.LIGHT);
         ItemMeta lightMeta = light.getItemMeta();
         BlockData data = Material.LIGHT.createBlockData();
@@ -35,9 +35,4 @@ public class Lights {
         return ((Light) data).getLevel();
     }
 
-    public static int rollOverAdd(int i){
-        if(i > 15)
-            return i - 15;
-        return i;
-    }
 }
