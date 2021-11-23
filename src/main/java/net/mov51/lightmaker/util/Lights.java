@@ -3,9 +3,12 @@ package net.mov51.lightmaker.util;
 import org.bukkit.Material;
 import org.bukkit.block.data.BlockData;
 import org.bukkit.block.data.type.Light;
+import org.bukkit.entity.Item;
+import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.BlockDataMeta;
 import org.bukkit.inventory.meta.ItemMeta;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 
@@ -16,7 +19,6 @@ public class Lights {
         for(int i = 0; i < 16; i++){
             lights.add(makeLight(i));
         }
-
     }
 
     public static ItemStack makeLight(int i){
@@ -29,10 +31,20 @@ public class Lights {
         return light;
     }
 
-    public static int getLight(ItemStack light){
+    public static int getLightLevel(ItemStack light){
         ItemMeta lightMeta = light.getItemMeta();
         BlockData data = ((BlockDataMeta) lightMeta).getBlockData(Material.LIGHT);
         return ((Light) data).getLevel();
+    }
+
+    public static int getLightLevelInHand(Player p){
+        if(p.getActiveItem() != null){
+            @NotNull ItemStack hand = p.getInventory().getItemInMainHand().asOne();
+            if(lights.contains(hand)){
+                return getLightLevel(hand);
+            }
+        }
+        return 0;
     }
 
 }

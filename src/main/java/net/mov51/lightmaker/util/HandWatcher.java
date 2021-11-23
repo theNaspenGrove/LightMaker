@@ -13,6 +13,7 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.scheduler.BukkitRunnable;
 
+import static net.mov51.lightmaker.LightMaker.projector;
 import static net.mov51.lightmaker.util.Lights.*;
 
 public class HandWatcher {
@@ -25,11 +26,15 @@ public class HandWatcher {
                     ItemStack hand = p.getInventory().getItemInMainHand();
                     Block b = p.getTargetBlock(null,10);
 
-                    if(lights.contains(hand.asOne()) && b.getType() == Material.LIGHT){
-                        int level = ((Levelled) b.getBlockData()).getLevel();
-
-                        TextComponent textComponent = Component.text(level).color(NamedTextColor.GOLD);
-                        p.sendActionBar(textComponent);
+                    if(lights.contains(hand.asOne())){
+                        projector.add(p);
+                        if(b.getType() == Material.LIGHT){
+                            int level = ((Levelled) b.getBlockData()).getLevel();
+                            TextComponent textComponent = Component.text(level).color(NamedTextColor.GOLD);
+                            p.sendActionBar(textComponent);
+                        }
+                    }else{
+                        projector.remove(p);
                     }
                 }
             }

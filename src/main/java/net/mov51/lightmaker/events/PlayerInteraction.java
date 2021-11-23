@@ -31,7 +31,7 @@ public class PlayerInteraction implements Listener {
                     //add
                 } else if (e.getAction() == Action.RIGHT_CLICK_BLOCK) {
                     //get hand level
-                    int handLevel = getLight(e.getItem().asOne());
+                    int handLevel = getLightLevel(e.getItem().asOne());
                     e.setCancelled(true);
                     BlockData data = b.getBlockData();
                     ((Levelled) data).setLevel(handLevel);
