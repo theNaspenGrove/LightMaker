@@ -66,17 +66,7 @@ public class ParticleRender {
                     Block block = world.getBlockAt(px + x, py + y, pz + z);
 
                     if(block.getType() == Material.LIGHT){
-
-                        int level = ((Levelled) block.getBlockData()).getLevel();
-                        Particle.DustOptions dustOptions;
-
-                        if(getLightLevelInHand(player) == level){
-                            dustOptions = new Particle.DustOptions(Color.fromRGB(25,214,0), 1.0F);
-                        }else{
-                            dustOptions = new Particle.DustOptions(lightColors[level], 1.0F);
-                        }
-
-                        player.spawnParticle(Particle.REDSTONE, block.getLocation().add(0.5,0.5,0.5), 50, dustOptions);
+                        player.spawnParticle(Particle.BLOCK_MARKER, block.getLocation().toCenterLocation(), 1, block.getBlockData());
                     }
 
                 }

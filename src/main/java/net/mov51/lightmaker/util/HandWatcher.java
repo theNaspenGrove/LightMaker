@@ -38,7 +38,7 @@ public class HandWatcher {
                     }
                 }
             }
-        }.runTaskTimer(plugin, 5L, 5L);
+        }.runTaskTimer(plugin, 2L, 2L);
     }
 }
 
