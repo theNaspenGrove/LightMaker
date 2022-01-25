@@ -22,17 +22,10 @@ public class HandWatcher {
         new BukkitRunnable() {
             public void run() {
                 for (Player p : Bukkit.getOnlinePlayers()) {
-
                     ItemStack hand = p.getInventory().getItemInMainHand();
-                    Block b = p.getTargetBlock(null,10);
 
                     if(lights.contains(hand.asOne())){
                         projector.add(p);
-                        if(b.getType() == Material.LIGHT){
-                            int level = ((Levelled) b.getBlockData()).getLevel();
-                            TextComponent textComponent = Component.text(level).color(NamedTextColor.GOLD);
-                            p.sendActionBar(textComponent);
-                        }
                     }else{
                         projector.remove(p);
                     }
