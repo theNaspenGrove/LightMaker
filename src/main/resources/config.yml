@@ -1,0 +1,8 @@
+light_quantity: 16
+light_ingredients:
+  - string
+  - string
+  - glowstone
+  - glowstone
+  - glass
+  - glow_ink_sac
