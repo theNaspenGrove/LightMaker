@@ -32,6 +32,7 @@ public class Recipe {
         plugin.getLogger().log(Level.INFO,"Adding Shapeless Light Block recipe!");
         //create a new unique key
         NamespacedKey key = new NamespacedKey(plugin, "light_block_shapeless");
+        recipeList.add(key);
         //creates a new recipe with the default light quantity as the output quantity
         ShapelessRecipe recipe = new ShapelessRecipe(key, lights.get(15).asQuantity(plugin.getConfig().getInt("default_light_quantity")));
         //places the light_ingredients configuration list into a String List
@@ -66,6 +67,8 @@ public class Recipe {
                     plugin.getConfig().getInt("default_light_quantity");
             //create a new unique key with the ingredient name.
             NamespacedKey key = new NamespacedKey(plugin, "light_block_bottling_" + ingredient);
+            //add new key to recipe list for on player login unlocking
+            recipeList.add(key);
             Material itemToBottle;
 
             try {
@@ -88,7 +91,7 @@ public class Recipe {
             bottleRecipe.setGroup(bottlingGroup);
             //add the recipe to the server
             Bukkit.addRecipe(bottleRecipe);
-            plugin.getLogger().log(Level.INFO,"ingredient can now be bottled!");
+            plugin.getLogger().log(Level.INFO,ingredient + " can now be bottled!");
         }
         plugin.getLogger().log(Level.INFO,"Light Block bottling recipes have been added!");
     }

@@ -2,6 +2,7 @@ package net.mov51.lightmaker;
 
 import net.mov51.lightmaker.events.BlockReplacement;
 import net.mov51.lightmaker.events.PlayerInteraction;
+import net.mov51.lightmaker.events.PlayerLogin;
 import net.mov51.lightmaker.util.Lights;
 import net.mov51.lightmaker.util.Highlighter;
 import org.bukkit.NamespacedKey;
@@ -18,6 +19,8 @@ public final class LightMaker extends JavaPlugin {
 
     public static Highlighter projector;
 
+    public static List<NamespacedKey> recipeList = new ArrayList<>();
+
     @Override
     public void onEnable() {
         getServer().getPluginManager().registerEvents(new PlayerInteraction(), this);
@@ -26,6 +29,8 @@ public final class LightMaker extends JavaPlugin {
         projector = new Highlighter(this);
 
         this.saveDefaultConfig();
+        //If setting is true, register player log-in event.
+        if(this.getConfig().getBoolean("grant_recipes_on_login")){getServer().getPluginManager().registerEvents(new PlayerLogin(), this);}
 
         startWatching(this);
         addRecipes(this);
