@@ -1,4 +1,7 @@
-light_quantity: 16
+default_light_quantity: 16
+#'shapeless' or 'bottled-light' are the valid options
+recipe_type: bottled-light
+#A maximum of 9 ingredients for the 9 crafting slots
 light_ingredients:
   - string
   - string
@@ -6,3 +9,29 @@ light_ingredients:
   - glowstone
   - glass
   - glow_ink_sac
+#Set the quantity of an item to use the default light quantity
+light_ingredients_to_bottle:
+  torch:
+    quantity: 1
+  redstone_torch:
+    quantity: 2
+  glow_berries:
+    quantity: 2
+  lantern:
+    quantity: 4
+  soul_lantern:
+    quantity: 6
+  glowstone:
+    quantity: 4
+  sea_lantern:
+    quantity: 8
+  redstone_lamp:
+    quantity: 8
+  shroomlight:
+    quantity: 12
+  end_rod:
+    quantity: 0
+    #0 is a stand-in for the default_light_quantity value
+  glow_ink_sac:
+    quantity: 0
+    #0 is a stand-in for the default_light_quantity value
