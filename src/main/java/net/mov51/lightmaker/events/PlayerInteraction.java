@@ -29,14 +29,15 @@ public class PlayerInteraction implements Listener {
                     b.breakNaturally();
                     b.getWorld().dropItemNaturally(b.getLocation(), lights.get(i));
                     //add
-                } else if (e.getAction() == Action.RIGHT_CLICK_BLOCK) {
+                } else if (e.getAction() == Action.RIGHT_CLICK_BLOCK && !e.getPlayer().isSneaking()) {
+                    //if Player is sneaking don't match the light level. If they are use the vanilla level
                     //get hand level
                     int handLevel = getLightLevel(e.getItem().asOne());
                     e.setCancelled(true);
                     BlockData data = b.getBlockData();
                     ((Levelled) data).setLevel(handLevel);
                     b.setBlockData(data);
-                }
+            }
             }
         }
     }
