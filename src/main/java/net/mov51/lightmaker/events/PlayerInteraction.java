@@ -17,7 +17,7 @@ public class PlayerInteraction implements Listener {
     @EventHandler(priority = EventPriority.HIGHEST)
     public void PlayerInteractEvent(PlayerInteractEvent e) {
 
-        if (e.getItem() != null && e.getClickedBlock() != null && lights.contains(e.getItem().asOne())) {
+        if (e.getItem() != null && e.getClickedBlock() != null && isLight(e.getItem())) {
             //get Block
             Block b = e.getClickedBlock();
             //check block type

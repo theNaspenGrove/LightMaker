@@ -2,12 +2,10 @@ package net.mov51.lightmaker.util;
 
 import org.bukkit.*;
 import org.bukkit.block.Block;
-import org.bukkit.block.data.Levelled;
 import org.bukkit.entity.Player;
 
 import java.util.UUID;
 
-import static net.mov51.lightmaker.util.Lights.getLightLevelInHand;
 
 public class ParticleRender {
 

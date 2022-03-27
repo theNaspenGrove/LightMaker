@@ -7,6 +7,7 @@ import org.bukkit.plugin.Plugin;
 import org.bukkit.scheduler.BukkitRunnable;
 
 import static net.mov51.lightmaker.LightMaker.projector;
+import static net.mov51.lightmaker.util.Lights.isLight;
 
 
 public class HandWatcher {
@@ -15,7 +16,7 @@ public class HandWatcher {
         new BukkitRunnable() {
             public void run() {
                 for (Player p : Bukkit.getOnlinePlayers()) {
-                    if(p.getInventory().getItemInMainHand().getType() == Material.LIGHT){
+                    if(isLight(p.getInventory().getItemInMainHand())){
                         projector.add(p);
                     }else{
                         projector.remove(p);

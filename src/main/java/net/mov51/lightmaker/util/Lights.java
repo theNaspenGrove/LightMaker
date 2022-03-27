@@ -36,14 +36,8 @@ public class Lights {
         return ((Light) data).getLevel();
     }
 
-    public static int getLightLevelInHand(Player p){
-        if(p.getActiveItem() != null){
-            ItemStack hand = p.getInventory().getItemInMainHand().asOne();
-            if(lights.contains(hand)){
-                return getLightLevel(hand);
-            }
-        }
-        return 0;
+    public static boolean isLight(ItemStack itemStack){
+        return itemStack.getType() == Material.LIGHT;
     }
 
 }
