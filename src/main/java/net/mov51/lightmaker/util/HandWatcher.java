@@ -12,7 +12,12 @@ import static net.mov51.lightmaker.util.Lights.isLight;
 
 public class HandWatcher {
 
+
+
     public static void startWatching(Plugin plugin){
+
+        int watchPeriod = plugin.getConfig().getInt("watch-period-in-ticks");
+
         new BukkitRunnable() {
             public void run() {
                 for (Player p : Bukkit.getOnlinePlayers()) {
@@ -23,7 +28,7 @@ public class HandWatcher {
                     }
                 }
             }
-        }.runTaskTimer(plugin, 2L, 2L);
+        }.runTaskTimer(plugin, 0L, watchPeriod);
     }
 }
 

@@ -1,4 +1,6 @@
 default_light_quantity: 16
+#how often (in ticks) the plugin should summon new light particles for players holding light blocks
+watch-period-in-ticks: 10
 #'shapeless' or 'bottled-light' are the valid options
 recipe_type: bottled-light
 #Should the plugin give the recipes to every player when they log in?
