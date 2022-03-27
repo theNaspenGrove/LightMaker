@@ -1,5 +1,6 @@
 package net.mov51.lightmaker;
 
+import net.mov51.lightmaker.events.BlockPlacement;
 import net.mov51.lightmaker.events.BlockReplacement;
 import net.mov51.lightmaker.events.PlayerInteraction;
 import net.mov51.lightmaker.events.PlayerLogin;
@@ -25,6 +26,7 @@ public final class LightMaker extends JavaPlugin {
     public void onEnable() {
         getServer().getPluginManager().registerEvents(new PlayerInteraction(), this);
         getServer().getPluginManager().registerEvents(new BlockReplacement(), this);
+        getServer().getPluginManager().registerEvents(new BlockPlacement(), this);
         Lights.makeLights();
         projector = new Highlighter(this);
 
