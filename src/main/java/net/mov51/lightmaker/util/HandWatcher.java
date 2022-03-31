@@ -7,6 +7,7 @@ import org.bukkit.plugin.Plugin;
 import org.bukkit.scheduler.BukkitRunnable;
 
 import static net.mov51.lightmaker.LightMaker.projector;
+import static net.mov51.lightmaker.LightMaker.watchPeriod;
 import static net.mov51.lightmaker.util.Lights.isLight;
 
 
@@ -15,8 +16,6 @@ public class HandWatcher {
 
 
     public static void startWatching(Plugin plugin){
-
-        int watchPeriod = plugin.getConfig().getInt("watch-period-in-ticks");
 
         new BukkitRunnable() {
             public void run() {

@@ -22,6 +22,8 @@ public final class LightMaker extends JavaPlugin {
 
     public static List<NamespacedKey> recipeList = new ArrayList<>();
 
+    public static int watchPeriod;
+
     @Override
     public void onEnable() {
         getServer().getPluginManager().registerEvents(new PlayerInteraction(), this);
@@ -33,7 +35,7 @@ public final class LightMaker extends JavaPlugin {
         this.saveDefaultConfig();
         //If setting is true, register player log-in event.
         if(this.getConfig().getBoolean("grant_recipes_on_login")){getServer().getPluginManager().registerEvents(new PlayerLogin(), this);}
-
+        watchPeriod = this.getConfig().getInt("watch-period-in-ticks") != 0 ? this.getConfig().getInt("watch-period-in-ticks") : 10;
         startWatching(this);
         addRecipes(this);
         addLevelRecipe(this);

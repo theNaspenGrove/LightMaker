@@ -9,6 +9,8 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 
+import static net.mov51.lightmaker.LightMaker.watchPeriod;
+
 public class Highlighter {
 
     protected LightMaker plugin;
@@ -26,7 +28,6 @@ public class Highlighter {
             projectorTask = null;
         }
         int updateRate = 1;
-        int watchPeriod = plugin.getConfig().getInt("watch-period-in-ticks");
         projectorTask = new BukkitRunnable() {
             @Override
             public void run() {
