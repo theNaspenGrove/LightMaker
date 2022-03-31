@@ -21,7 +21,7 @@ public class HandWatcher {
         new BukkitRunnable() {
             public void run() {
                 for (Player p : Bukkit.getOnlinePlayers()) {
-                    if(isLight(p.getInventory().getItemInMainHand())){
+                    if(isLight(p.getInventory().getItemInMainHand()) || isLight(p.getInventory().getItemInOffHand())){
                         projector.add(p);
                     }else{
                         projector.remove(p);
