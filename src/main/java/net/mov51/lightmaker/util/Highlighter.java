@@ -26,6 +26,7 @@ public class Highlighter {
             projectorTask = null;
         }
         int updateRate = 1;
+        int watchPeriod = plugin.getConfig().getInt("watch-period-in-ticks");
         projectorTask = new BukkitRunnable() {
             @Override
             public void run() {
@@ -33,7 +34,7 @@ public class Highlighter {
                     visual.update();
                 }
             }
-        }.runTaskTimer(plugin, updateRate, 5);
+        }.runTaskTimer(plugin, updateRate, watchPeriod);
     }
 
     public void add(Player player) {
