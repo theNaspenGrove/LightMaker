@@ -13,6 +13,7 @@ public class BlockReplacement implements Listener {
 
     @EventHandler(priority = EventPriority.NORMAL)
     public void BlockPlaceEvent(BlockPlaceEvent e) {
+        if(e.getPlayer().getGameMode() == org.bukkit.GameMode.CREATIVE){return;}
         if(e.getBlockReplacedState().getType() == Material.LIGHT){
            e.getBlock().getWorld().dropItemNaturally(e.getBlock().getLocation(), makeLight(((Light) e.getBlockReplacedState().getBlockData()).getLevel()));
         }
