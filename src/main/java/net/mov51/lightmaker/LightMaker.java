@@ -1,9 +1,6 @@
 package net.mov51.lightmaker;
 
-import net.mov51.lightmaker.events.BlockPlacement;
-import net.mov51.lightmaker.events.BlockReplacement;
-import net.mov51.lightmaker.events.PlayerInteraction;
-import net.mov51.lightmaker.events.PlayerLogin;
+import net.mov51.lightmaker.events.*;
 import net.mov51.lightmaker.util.Lights;
 import net.mov51.lightmaker.util.Highlighter;
 import org.bukkit.NamespacedKey;
@@ -35,6 +32,7 @@ public final class LightMaker extends JavaPlugin {
         this.saveDefaultConfig();
         //If setting is true, register player log-in event.
         if(this.getConfig().getBoolean("grant_recipes_on_login")){getServer().getPluginManager().registerEvents(new PlayerLogin(), this);}
+        if(this.getConfig().getBoolean("stop-entity-spawns-at-0")){getServer().getPluginManager().registerEvents(new CreatureSpawnEventListener(), this);}
         watchPeriod = this.getConfig().getInt("watch-period-in-ticks") != 0 ? this.getConfig().getInt("watch-period-in-ticks") : 10;
         startWatching(this);
         addRecipes(this);
