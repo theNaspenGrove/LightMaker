@@ -29,13 +29,16 @@ public class PlayerInteraction implements Listener {
             //check block type
             if (b.getType() == Material.LIGHT) {
                 //get block level
-                int i = ((Levelled) b.getBlockData()).getLevel();
+                int l = ((Levelled) b.getBlockData()).getLevel();
                 //break
                 if (e.getAction() == Action.LEFT_CLICK_BLOCK) {
                     b.breakNaturally();
-                    Item item = b.getWorld().dropItemNaturally(b.getLocation(), lights.get(i));
-                    if(!(new BlockDropItemEvent(b, b.getState(), e.getPlayer(), Collections.singletonList(item)).callEvent())){
-                        item.remove();
+                    List<Item> items = new ArrayList<>();
+                    items.add(b.getWorld().dropItemNaturally(b.getLocation(), lights.get(l)));
+                    if(!(new BlockDropItemEvent(b, b.getState(), e.getPlayer(), items).callEvent())){
+                        for(Item i : items){
+                            i.remove();
+                        }
                     }
 
                     //add
