@@ -29,7 +29,6 @@ public class CreatureSpawnEventListener implements Listener {
                     }
                 }
             }
-            System.out.println(toCheck);
             for (Location l : toCheck) {
                 Block block = l.getBlock();
                 if (block.getType() == org.bukkit.Material.LIGHT && ((Light) block.getBlockData()).getLevel() == 0) {
