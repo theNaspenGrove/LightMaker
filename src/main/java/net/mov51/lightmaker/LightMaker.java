@@ -30,13 +30,19 @@ public final class LightMaker extends JavaPlugin {
         projector = new Highlighter(this);
 
         this.saveDefaultConfig();
-        //If setting is true, register player log-in event.
-        if(this.getConfig().getBoolean("grant_recipes_on_login")){getServer().getPluginManager().registerEvents(new PlayerLogin(), this);}
+        //allows for the creation of custom recipes by disabling the default ones entirely
+        if(this.getConfig().getBoolean("enable_recipes")) {
+            //If setting is true, register player log-in event.
+            if (this.getConfig().getBoolean("grant_recipes_on_login")) {
+                getServer().getPluginManager().registerEvents(new PlayerLogin(), this);
+            }
+            //only add recipes if recipe handling is enabled
+            addRecipes(this);
+            addLevelRecipe(this);
+        }
         if(this.getConfig().getBoolean("stop-entity-spawns-at-0")){getServer().getPluginManager().registerEvents(new CreatureSpawnEventListener(), this);}
         watchPeriod = this.getConfig().getInt("watch-period-in-ticks") != 0 ? this.getConfig().getInt("watch-period-in-ticks") : 10;
         startWatching(this);
-        addRecipes(this);
-        addLevelRecipe(this);
 
         this.getLogger().log(Level.INFO,"Lights can now be MADE by *your* hands!");
     }

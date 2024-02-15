@@ -1,3 +1,5 @@
+enable_recipes: true
+#should the plugin register recipes for the light block item?
 default_light_quantity: 16
 #Should the plugin stop entity spawns in light blocks that are light level 0?
 stop-entity-spawns-at-0: true
