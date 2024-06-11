@@ -32,15 +32,19 @@ public class PlayerInteraction implements Listener {
                 int l = ((Levelled) b.getBlockData()).getLevel();
                 //break
                 if (e.getAction() == Action.LEFT_CLICK_BLOCK) {
-                    b.breakNaturally();
-                    List<Item> items = new ArrayList<>();
-                    items.add(b.getWorld().dropItemNaturally(b.getLocation(), lights.get(l)));
-                    if(!(new BlockDropItemEvent(b, b.getState(), e.getPlayer(), items).callEvent())){
-                        for(Item i : items){
-                            i.remove();
+
+                    BlockBreakEvent be = new BlockBreakEvent(b, e.getPlayer());
+                    be.callEvent();
+                    if(!be.isCancelled()){
+                        b.breakNaturally();
+                        List<Item> items = new ArrayList<>();
+                        items.add(b.getWorld().dropItemNaturally(b.getLocation(), lights.get(l)));
+                        if(!(new BlockDropItemEvent(b, b.getState(), e.getPlayer(), items).callEvent())){
+                            for(Item i : items){
+                                i.remove();
+                            }
                         }
                     }
-
                     //add
                 } else if (e.getAction() == Action.RIGHT_CLICK_BLOCK && !e.getPlayer().isSneaking()) {
                     //if Player is sneaking don't match the light level. If they are use the vanilla level

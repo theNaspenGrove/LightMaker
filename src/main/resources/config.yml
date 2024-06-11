@@ -1,14 +1,17 @@
-enable_recipes: true
-#should the plugin register recipes for the light block item?
-default_light_quantity: 16
 #Should the plugin stop entity spawns in light blocks that are light level 0?
 stop-entity-spawns-at-0: true
 #how often (in ticks) the plugin should summon new light particles for players holding light blocks
 watch-period-in-ticks: 10
+#should the plugin register recipes for the light block item?
+enable_base_recipes: true
+#should the plugin register recipes for the different levels of light block in the stonecutter??
+enable_level_recipes: true
 #'shapeless' or 'bottled-light' are the valid options
 recipe_type: bottled-light
 #Should the plugin give the recipes to every player when they log in?
 grant_recipes_on_login: true
+#The default number of light blocks to give when crafting
+default_light_quantity: 16
 #A maximum of 9 ingredients for the 9 crafting slots
 light_ingredients:
   - string

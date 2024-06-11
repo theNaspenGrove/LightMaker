@@ -12,7 +12,7 @@ public class BlockPlacement implements Listener {
 
     @EventHandler(priority = EventPriority.NORMAL)
     public void BlockPlaceEvent(BlockPlaceEvent e) {
-        if(e.getBlock().getType() == Material.LIGHT){
+        if(e.getBlock().getType() == Material.LIGHT && !e.isCancelled()){
             summonMarker(e.getPlayer(),e.getBlock());
         }
     }

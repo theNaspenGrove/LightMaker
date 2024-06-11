@@ -30,14 +30,15 @@ public final class LightMaker extends JavaPlugin {
         projector = new Highlighter(this);
 
         this.saveDefaultConfig();
-        //allows for the creation of custom recipes by disabling the default ones entirely
-        if(this.getConfig().getBoolean("enable_recipes")) {
-            //If setting is true, register player log-in event.
-            if (this.getConfig().getBoolean("grant_recipes_on_login")) {
-                getServer().getPluginManager().registerEvents(new PlayerLogin(), this);
-            }
-            //only add recipes if recipe handling is enabled
+        //If setting is true, register player log-in event.
+        if (this.getConfig().getBoolean("grant_recipes_on_login")) {
+            getServer().getPluginManager().registerEvents(new PlayerLogin(), this);
+        }
+        //allows for the creation of custom recipes by disabling the default base ones entirely
+        if(this.getConfig().getBoolean("enable_base_recipes")) {
             addRecipes(this);
+        }
+        if(this.getConfig().getBoolean("enable_level_recipes")){
             addLevelRecipe(this);
         }
         if(this.getConfig().getBoolean("stop-entity-spawns-at-0")){getServer().getPluginManager().registerEvents(new CreatureSpawnEventListener(), this);}
