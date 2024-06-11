@@ -6,7 +6,7 @@
 
     <groupId>net.mov51</groupId>
     <artifactId>LightMaker</artifactId>
-    <version>1.2.1-snapshot-3</version>
+    <version>1.2.1</version>
     <packaging>jar</packaging>
 
     <name>LightMaker</name>
