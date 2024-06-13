@@ -1,10 +1,11 @@
-package net.mov51.lightmaker.events;
+package mov.naspen.lightmaker.events;
 
 import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.block.data.BlockData;
 import org.bukkit.block.data.Levelled;
 import org.bukkit.entity.Item;
+import org.bukkit.event.Event;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
@@ -12,17 +13,16 @@ import org.bukkit.event.block.Action;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.block.BlockDropItemEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
-import org.jetbrains.annotations.NotNull;
 
 import java.util.*;
 
-import static net.mov51.lightmaker.util.Lights.*;
+import static mov.naspen.lightmaker.util.Lights.*;
 
 public class PlayerInteraction implements Listener {
 
     @EventHandler(priority = EventPriority.HIGHEST)
     public void PlayerInteractEvent(PlayerInteractEvent e) {
-
+        if (e.useInteractedBlock() == Event.Result.DENY){ return;}
         if (e.getItem() != null && e.getClickedBlock() != null && isLight(e.getItem())) {
             //get Block
             Block b = e.getClickedBlock();

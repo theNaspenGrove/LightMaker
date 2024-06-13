@@ -1,5 +1,5 @@
 name: LightMaker
 version: ${project.version}
-main: net.mov51.lightmaker.LightMaker
+main: mov.naspen.lightmaker.LightMaker
 api-version: 1.17
-authors: [ mov51 ]
+authors: [ naspen ]

@@ -1,4 +1,4 @@
-package net.mov51.lightmaker.events;
+package mov.naspen.lightmaker.events;
 
 import org.bukkit.Location;
 import org.bukkit.block.Block;

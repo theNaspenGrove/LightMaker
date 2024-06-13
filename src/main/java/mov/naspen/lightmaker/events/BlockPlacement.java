@@ -1,4 +1,4 @@
-package net.mov51.lightmaker.events;
+package mov.naspen.lightmaker.events;
 
 import org.bukkit.Material;
 import org.bukkit.event.EventHandler;
@@ -6,7 +6,7 @@ import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockPlaceEvent;
 
-import static net.mov51.lightmaker.util.ParticleRender.summonMarker;
+import static mov.naspen.lightmaker.util.ParticleRender.summonMarker;
 
 public class BlockPlacement implements Listener {
 

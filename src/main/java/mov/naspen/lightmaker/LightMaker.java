@@ -1,8 +1,8 @@
-package net.mov51.lightmaker;
+package mov.naspen.lightmaker;
 
-import net.mov51.lightmaker.events.*;
-import net.mov51.lightmaker.util.Lights;
-import net.mov51.lightmaker.util.Highlighter;
+import mov.naspen.lightmaker.events.*;
+import mov.naspen.lightmaker.util.Lights;
+import mov.naspen.lightmaker.util.Highlighter;
 import org.bukkit.NamespacedKey;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -10,8 +10,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 
-import static net.mov51.lightmaker.Recipe.*;
-import static net.mov51.lightmaker.util.HandWatcher.startWatching;
+import static mov.naspen.lightmaker.Recipe.*;
+import static mov.naspen.lightmaker.util.HandWatcher.startWatching;
 
 public final class LightMaker extends JavaPlugin {
 

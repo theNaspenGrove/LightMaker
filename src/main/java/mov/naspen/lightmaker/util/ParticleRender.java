@@ -1,4 +1,4 @@
-package net.mov51.lightmaker.util;
+package mov.naspen.lightmaker.util;
 
 import org.bukkit.*;
 import org.bukkit.block.Block;

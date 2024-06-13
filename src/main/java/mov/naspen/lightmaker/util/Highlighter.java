@@ -1,6 +1,6 @@
-package net.mov51.lightmaker.util;
+package mov.naspen.lightmaker.util;
 
-import net.mov51.lightmaker.LightMaker;
+import mov.naspen.lightmaker.LightMaker;
 import org.bukkit.entity.Player;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.scheduler.BukkitTask;
@@ -8,8 +8,6 @@ import org.bukkit.scheduler.BukkitTask;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
-
-import static net.mov51.lightmaker.LightMaker.watchPeriod;
 
 public class Highlighter {
 
@@ -35,7 +33,7 @@ public class Highlighter {
                     visual.update();
                 }
             }
-        }.runTaskTimer(plugin, updateRate, watchPeriod);
+        }.runTaskTimer(plugin, updateRate, LightMaker.watchPeriod);
     }
 
     public void add(Player player) {
